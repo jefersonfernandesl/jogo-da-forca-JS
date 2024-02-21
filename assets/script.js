@@ -14,9 +14,8 @@ function inciarJogo() {
 
     teclas.forEach(tecla => {
         tecla.addEventListener("click", function () {
-            atualizarPlacar();
             if (tentativas <= 0) {
-                console.log("perdeu");
+
             }
             verificarLetra(tecla.value)
         })
@@ -24,15 +23,25 @@ function inciarJogo() {
 
     function atualizarPlacar() {
         if (tentativas <= 0) {
-            document.getElementById("numberAttempts").innerHTML = "Você perdeu";
+            document.getElementById("numberAttempts").innerHTML = "Você perdeu!";
             let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraJogador.toString();
             document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
 
+        } else {
+            document.getElementById("numberAttempts").innerHTML = `Tentativas: ${tentativas}`;
+            let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraJogador.toString();
+            document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
         }
 
-        document.getElementById("numberAttempts").innerHTML = `Tentativas: ${tentativas}`;
-        let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraJogador.toString();
-        document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
+    }
+
+    function verificarSeAcertouAPalavra() {
+        if (palavraJogador.toString === palavraSorteada.toString) {
+            return true
+        }
+        else {
+            return false
+        }
     }
 
     function verificarLetra(letraChutada) {
@@ -47,9 +56,19 @@ function inciarJogo() {
                 if (letraChutada == palavraSorteada[i]) {
                     delete palavraJogador[i];
                     palavraJogador[i] = letraChutada.toUpperCase()
+                    let teste = verificarSeAcertouAPalavra()
+                    if (teste == true) {
+                        document.getElementById("numberAttempts").innerHTML = `Você ganhou!`;
+                        let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraJogador.toString();
+                        document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
+                    }
+                    else {
+                        atualizarPlacar();
+                    }
                 }
                 else {
                     naoAchou.push("nao achou");
+                    atualizarPlacar();
                 }
             }
 
