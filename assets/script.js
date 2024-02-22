@@ -33,15 +33,12 @@ function inciarJogo() {
     }
 
     function verificarSeAcertouAPalavra() {
-        console.log(palavraJogador.toString());
-        console.log(palavraSorteada.toString());
         if (palavraJogador.toString() === palavraSorteada.toString()) {
             document.getElementById("numberAttempts").innerHTML = `Você ganhou!`;
             let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraJogador.toString();
             document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
         }
         else {
-            console.log('nao sao');
             atualizarPlacar();
         }
     }
