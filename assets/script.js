@@ -41,6 +41,9 @@ function inciarJogo() {
             document.getElementById("numberAttempts").innerHTML = `Você ganhou!`;
             let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraJogador.toString();
             document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
+            setTimeout(function () {
+                window.location.reload();
+            }, 3000)
         }
         else {
             atualizarPlacar();
@@ -73,7 +76,7 @@ function inciarJogo() {
                 tentativas -= 1
                 document.getElementById(teclaId).style = 'background-color: rgb(255, 96, 96); color:black;';
                 document.getElementById(teclaId).disabled = true;
-                
+
                 atualizarPlacar();
             }
 
