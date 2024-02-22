@@ -17,7 +17,6 @@ body {
 }
 
 .container {
-    background-color: w;
     border-radius: 2rem;
     padding: 2rem;
     background-color: white;
@@ -85,3 +84,87 @@ body {
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 } 
+
+@media(max-width: 650px) {
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 96.1vh;
+        background-color: skyblue;
+    }
+    
+    .container {
+        min-width: 10rem;
+        height: 20rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: white;
+    }
+    
+    .main__top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+    }
+    
+    .main__bottom__words {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+        font-size: 2rem;
+        list-style: none;
+        margin-bottom: 1rem;
+        color: #444444;
+    }
+    
+    
+    .main__bottom_keyboard {
+        display: flex;
+        max-width: 25rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    
+    .btn {
+        background-color: skyblue;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.5rem;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    .btn:hover {
+        background-color: #40a1c8;
+        color: white;
+    }
+    
+    .footer {
+        background-color: #0c85b5;
+        color: white;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer__link {
+        color: white;
+        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .footer__link:hover {
+        color: #dadada;
+        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}   
+
