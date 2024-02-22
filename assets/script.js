@@ -14,7 +14,8 @@ function inciarJogo() {
 
     teclas.forEach(tecla => {
         tecla.addEventListener("click", function () {
-            verificarLetra(tecla.value);
+            let teclaId = tecla.id;
+            verificarLetra(tecla.value, teclaId);
         })
     })
 
@@ -23,6 +24,9 @@ function inciarJogo() {
             document.getElementById("numberAttempts").innerHTML = "Você perdeu! A palavra era:";
             let palavraExibicao = document.getElementById("wordLine").innerHTML = palavraSorteada.toString();
             document.getElementById("wordLine").innerHTML = palavraExibicao.replaceAll(",", " ");
+            setTimeout(function () {
+                window.location.reload();
+            }, 3000)
 
         } else {
             document.getElementById("numberAttempts").innerHTML = `Tentativas: ${tentativas}`;
@@ -43,9 +47,10 @@ function inciarJogo() {
         }
     }
 
-    function verificarLetra(letraChutada) {
+    function verificarLetra(letraChutada, idTecla) {
         let naoAchou = [];
         let letra = letraChutada;
+        let teclaId = idTecla
         let verificarSeALetraJaFoiUsada = letrasChutadas.includes(letra);
 
         if (!verificarSeALetraJaFoiUsada == true) {
@@ -54,6 +59,8 @@ function inciarJogo() {
                 if (letraChutada == palavraSorteada[i]) {
                     delete palavraJogador[i];
                     palavraJogador[i] = letraChutada.toUpperCase();
+                    document.getElementById(teclaId).style = 'background-color: rgb(124, 254, 88); color:black;';
+                    document.getElementById(teclaId).disabled = true;
                     verificarSeAcertouAPalavra();
                 }
                 else {
@@ -64,13 +71,15 @@ function inciarJogo() {
 
             if (naoAchou.length == palavraSorteada.length) {
                 tentativas -= 1
+                document.getElementById(teclaId).style = 'background-color: rgb(255, 96, 96); color:black;';
+                document.getElementById(teclaId).disabled = true;
+                
                 atualizarPlacar();
             }
 
         }
         else {
-            console.log('letra ja foi usada');
-
+            console.log('tecla ja usada');
         }
     }
 
