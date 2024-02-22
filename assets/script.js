@@ -61,7 +61,6 @@ function inciarJogo() {
                 }
                 else {
                     verificarSeAcertouAPalavra()
-                    //atualizarPlacar();
                     naoAchou.push("nao achou");
                 }
             }
