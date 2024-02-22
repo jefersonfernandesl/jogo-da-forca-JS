@@ -64,3 +64,24 @@ body {
     background-color: #40a1c8;
     color: white;
 }
+
+.footer {
+    background-color: #0c85b5;
+    color: white;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__link {
+    color: white;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer__link:hover {
+    color: #dadada;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
